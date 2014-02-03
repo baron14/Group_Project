@@ -1,0 +1,191 @@
+﻿/*Made by Christie Shearer*/
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+</head>
+
+<body>
+
+/*HTML Tag Settings*/
+html
+{
+	overflow-x:scroll;
+}
+
+body
+{
+	background-image:url('Background.png');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size: 100% auto;
+}
+
+p
+{
+	color:black;
+	font-size:large;
+	font:inherit;
+}
+
+h1
+{
+	font:arial;
+	font-size:xx-large;
+	color:#3366FF;
+	text-align:left;
+	text-decoration:underline;
+	margin-top:10px;
+	font-family:Arial;
+}
+
+h2
+{
+	color:black;
+	font-size:x-large;
+	font:inherit;
+}
+
+
+h3
+{
+	color:black;
+	font-size:large;
+	font:inherit;
+	float:right;
+}
+
+
+/*Link Settings*/
+a:link
+{
+	color:black;
+}
+
+a:visited
+{
+	color:#0000CC;
+}
+
+a:hover
+{
+	color:#FFFF66;
+}
+
+a:active
+{
+	color:black;
+}
+
+
+/*ID Settings*/
+
+/*Repeated Header, Tabs, TabButton and News*/
+
+#Banner
+{
+	
+}
+
+#Header
+{
+	background-color:#fce1a3;
+	color:blue;
+	text-align:center;
+	width:auto;
+	height:200px;
+	text-decoration:none;
+	margin-bottom:30px;
+	height:auto;
+	padding-bottom:5px;
+	padding-top:5px;
+}
+
+#Tabs
+{
+	padding-top:1px;
+	height:82px;
+	background-color:#f9c959;
+	text-decoration:none;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+#TabButton
+{
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+	margin-top:20px;
+}
+
+#News1, #News2, #News3, #News4, #News5, #News6
+{
+	height:200px;
+	width:960px;
+	margin-left:20px;
+	border:2px solid #f9c959;
+	background-color:#fce1a3;
+	padding-top:1px;
+}
+
+#HomeInfo
+{
+	width:800px;
+}
+
+#BodyBlock
+{
+    height:auto;
+    width:1000px;
+    background-color:white;
+    margin-top:-30px;
+  	margin-left: auto ;
+  	margin-right: auto ;
+}
+
+#Picture1, #Picture2, #Picture3, #Picture4, #Picture6, #Picture7
+{
+	float:left;
+	margin-right:20px;
+	margin-left:20px;
+}
+
+		input
+		{
+			width:175px
+			font:menu;
+			font-size:medium;
+		}
+		
+		#LoginUsername
+		{
+		}		
+
+		#LoginPassword
+		{
+
+		}
+		
+		#Login
+		{
+		margin-left:35%;
+
+		}
+		
+		#LoginButton
+		{
+		margin-left:90px;
+		}
+
+
+</body>
+
+</html>

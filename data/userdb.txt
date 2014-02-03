@@ -1,0 +1,36 @@
+--
+-- Table structure for table `user_db`
+--
+
+CREATE TABLE IF NOT EXISTS `user_db` (
+  `username` varchar(10) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `firstName` varchar(10) NOT NULL,
+  `secondName` varchar(10) NOT NULL,
+  `level` int(1) NOT NULL,
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `password` (`password`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `user_jobs` (
+  `username` varchar(10) NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (username) REFERENCES user_db (username),
+  FOREIGN KEY (job_id) REFERENCES job (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_db`
+--
+
+INSERT INTO `user_db` (`username`, `password`, `firstName`, `secondName`, `level`) VALUES
+("jb246","jordan","Jordan","Baron",3),
+("cs312","christie","Christie","Shearer",3),
+("abc123","test","First","Last",1);
+
+INSERT INTO `user_jobs` (`username`,`job_id`,`id`) VALUES
+("jb246",1,1),
+("jb246",2,2),
+("cs312",1,3);

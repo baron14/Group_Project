@@ -1,0 +1,209 @@
+﻿<html>
+	<head>
+	</head>
+	<body>
+		
+	/*Website Layout Styles*/
+
+		html
+		{
+			overflow-x:scroll;
+		}		
+		
+		body
+		{
+			background-image:url('Background.png');
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+		}
+		
+		#Header
+		{
+			background-color:#fce1a3;
+			width:auto;
+			height:auto;
+			margin-bottom:30px;
+			padding-bottom:5px;
+			padding-top:5px;
+		}
+		
+		#LoginHeader
+		{
+			background-color:#fce1a3;
+			color:blue;
+			text-align:center;
+			width:1220px;
+			height:200px;
+			text-decoration:none;
+			margin-bottom:30px;
+			height:auto;
+			padding-bottom:5px;
+			padding-top:5px;
+		}
+				
+		#Tabs
+		{
+			padding-top:1px;
+			height:82px;
+			background-color:#f9c959;
+			text-decoration:none;
+			margin-left:10px;
+			margin-right:10px;
+			margin-top:-170px;
+			margin-bottom:10px;
+		}
+		
+		#TabButton
+		{
+			margin-left:20px;
+			margin-right:20px;
+			margin-bottom:20px;
+			margin-top:20px;
+		}
+				
+		#Banner
+		{
+			margin-top:10px;
+			margin-bottom:170px;
+			margin-left:20px;
+		}
+		
+		#SideBar
+		{
+			background-color:#A3FCE1;
+			width:300px;
+			height:auto;
+			float:left;
+			margin-left:10px;
+			margin-bottom:25px;
+		}
+		
+		#Graphs
+		{
+			margin-left:220px;
+		}
+		
+		h1
+		{
+			text-align:center;
+			font:menu;
+			font-size:medium;
+			text-decoration:underline;
+		}
+		
+		p
+		{
+			font:menu;
+			font-size:x-small;
+			margin-left:10px;
+		}
+		
+		#CreateParameter1, #CreateParameter2
+		{
+			margin-left:20px;
+		}
+		
+		#CreateRejected
+		{
+			margin-left:-22px;
+		}
+		
+		#CreateFailed
+		{
+			margin-left:-5px;
+		}
+				
+		#CreateJob
+		{
+			margin-left:78px;
+		}
+		
+				
+		#CreateObjective		
+		{
+			margin-left:37px;
+		}
+
+		#CreateNameGraph
+		{
+			margin-left:15px;
+		}
+		
+		#CreateFilter1
+		{
+			width:50px;
+			margin-left:66px;
+		}
+		
+		#CreateFilter2
+		{
+			width:50px;
+			margin-left:98px;
+		}
+
+		select
+		{
+			width:150px;
+			font:menu;
+			font-size:x-small;
+
+		}
+		
+		input
+		{
+			width:175px
+			font:menu;
+			font-size:x-small;
+		}
+		
+		#LoginUsername
+		{
+			margin-left:20px;
+		}		
+
+		#LoginPassword
+		{
+			margin-left:24px;
+		}
+		
+		#Login
+		{
+			margin-left:500px;
+		}
+		
+		#LoginButton
+		{
+			margin-left:91px;
+		}
+							
+	/*Scatterchart Styles*/
+		chart
+		{
+		}
+		
+		.main text
+		{
+		    font: 10px sans-serif;	
+		}
+		
+		.axis line, .axis path
+		{
+		    shape-rendering: crispEdges;
+		    stroke: black;
+		    fill: none;
+		}
+		
+		circle
+		{
+		    fill: #F2F200;
+		}
+		
+		#Graph1Button
+		{
+			margin-left:55px;
+		}
+
+	</body>
+	
+</html>
+

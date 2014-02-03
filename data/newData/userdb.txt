@@ -1,0 +1,47 @@
+DROP TABLE IF EXISTS `user_db`;
+CREATE TABLE IF NOT EXISTS `user_db` (
+  `username` varchar(10) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `firstName` varchar(10) NOT NULL,
+  `secondName` varchar(10) NOT NULL,
+  `level` int(1) NOT NULL,
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `password` (`password`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `user_jobs`;
+CREATE TABLE IF NOT EXISTS `user_jobs` (
+  `username` varchar(10) NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (username) REFERENCES user_db (username),
+  FOREIGN KEY (job_id) REFERENCES test_job_db (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `user_db` (`username`, `password`, `firstName`, `secondName`, `level`) VALUES
+("jb246","jordan","Jordan","Baron",3),
+("cs312","christie","Christie","Shearer",3),
+("abc123","test","First","Last",1);
+
+INSERT INTO `user_jobs` (`username`,`job_id`,`id`) VALUES
+("jb246",8,1),
+("jb246",9,2),
+("jb246",10,3),
+("jb246",11,4),
+("jb246",12,5),
+("jb246",13,6),
+("jb246",14,7),
+("jb246",15,8),
+("jb246",16,9),
+("jb246",17,10),
+("jb246",18,11),
+("jb246",19,12),
+("jb246",20,13),
+("jb246",21,14),
+("jb246",22,15),
+("cs312",8,16),
+("cs312",9,17),
+("cs312",10,18),
+("cs312",11,19),
+("cs312",12,20);

@@ -1,0 +1,280 @@
+﻿	/*Made by Christie Shearer*/
+
+
+<html>
+	<head>
+	</head>
+	<body>
+		
+	/*Website Layout Styles*/
+
+		html
+		{
+			overflow-x:scroll;
+		}		
+		
+		body
+		{
+			background-color:#B3D9FF;
+		}
+	
+		#Header
+		{
+			background-color:#fce1a3;
+			width:auto;
+			height:225px;
+			margin-bottom:30px;
+			padding-bottom:5px;
+			padding-top:5px;
+		}
+		
+		#LoginHeader
+		{
+			background-color:#fce1a3;
+			color:blue;
+			text-align:center;
+			width:auto;
+			height:200px;
+			text-decoration:none;
+			margin-bottom:30px;
+			height:auto;
+			padding-bottom:5px;
+			padding-top:5px;
+		}
+				
+		#Tabs
+		{
+			padding-top:1px;
+			height:82px;
+			width:auto;
+			background-color:#f9c959;
+			text-decoration:none;
+			margin-left:10px;
+			margin-right:10px;
+			margin-top:-170px;
+			margin-bottom:10px;
+		}
+		
+		#TabButton
+		{
+			margin-left:20px;
+			margin-right:20px;
+			margin-bottom:20px;
+			margin-top:20px;
+		}
+				
+		#Banner
+		{
+				margin-left:100px;
+		}
+
+		#SideBar
+		{
+			background-color:#A3FCE1;
+			width:350px;
+			height:auto;
+			float:left;
+			margin-left:10px;
+			margin-bottom:25px;
+		}
+		
+		#InfoBlock
+		{
+			background-color:white;
+			width:auto;
+			height:auto;
+			margin-left:370px;
+		}
+
+		#BodyBlock
+		{
+		    height:auto;
+		    width:1000px;
+		    background-color:white;
+		    margin-top:-30px;
+		  	margin-left: auto ;
+		  	margin-right: auto ;
+		}
+
+		#Graphs
+		{
+			margin-left:220px;
+		}
+		
+		#BodyBlock
+		{
+		    height:auto;
+		    width:1000px;
+		    background-color:white;
+		    margin-top:-30px;
+		  	margin-left: auto ;
+		  	margin-right: auto ;
+		}
+		
+		h1
+		{
+			text-align:center;
+			font:menu;
+			font-size:x-large;
+			text-decoration:underline;
+		}
+		
+		p
+		{
+			font:menu;
+			font-size:medium;
+			margin-left:10px;
+		}
+		
+		h2
+		{
+			text-align:right;
+			font:menu;
+			font-size:medium;
+			
+		}
+		
+		/*Link Settings*/
+		a:link
+		{
+			color:black;
+		}
+		
+		a:visited
+		{
+			color:#0000CC;
+		}
+		
+		a:hover
+		{
+			color:#FFFF66;
+		}
+		
+		a:active
+		{
+			color:black;
+		}
+
+		#CreateParameter1, #CreateParameter2
+		{
+			margin-left:20px;
+		}
+		
+		#CreateRejected
+		{
+			margin-left:80px;
+		}
+		
+		#CreateFailed
+		{
+			margin-left:100px;
+		}
+				
+		#CreateJob
+		{
+			margin-left:78px;
+		}
+		
+				
+		#CreateObjective		
+		{
+			margin-left:37px;
+		}
+
+		#CreateNameGraph
+		{
+			margin-left:15px;
+		}
+		
+		#CreateFilter1
+		{
+			width:50px;
+			margin-left:66px;
+		}
+		
+		#CreateFilter2
+		{
+			width:50px;
+			margin-left:98px;
+		}
+
+		select
+		{
+			width:150px;
+			font:menu;
+			font-size:medium;
+
+		}
+		
+		input
+		{
+			width:175px
+			font:menu;
+			font-size:medium;
+		}
+		
+		#LoginUsername
+		{
+			margin-left:20px;
+		}		
+
+		#LoginPassword
+		{
+			margin-left:24px;
+		}
+		
+		#Login
+		{
+			margin-left:500px;
+		}
+		
+		#LoginButton
+		{
+			margin-left:91px;
+		}
+		
+		#SaveButton, #HelpButton, #LogoutButton, #ProfileButton
+		{
+			float:left;
+		}
+		
+		#BodyText
+		{
+			
+		}
+		
+		#BackButton
+		{
+			margin-left:100px;
+		}
+							
+	/*Scatterchart Styles*/
+		chart
+		{
+		}
+		
+		.main text
+		{
+		    font: 10px sans-serif;	
+		}
+		
+		.axis line, .axis path
+		{
+		    shape-rendering:crispEdges;
+		    stroke:black;
+		    fill:none;
+		}
+		
+		circle
+		{
+		    fill:#F2F200;
+		}
+		
+		#Graph1Button
+		{
+			margin-left:55px;
+		}
+
+	</body>
+	
+</html>		

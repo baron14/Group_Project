@@ -1,0 +1,241 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.8
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 17, 2013 at 10:53 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.3.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: 'csgp3'
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'job'
+--
+
+DROP TABLE IF EXISTS job;
+CREATE TABLE job (
+  id int(11) NOT NULL,
+  rating int(11) NOT NULL DEFAULT '3',
+  flagged tinyint(1) NOT NULL DEFAULT '0',
+  total_simulations int(11) NOT NULL DEFAULT '0',
+  completed_simulations int(11) NOT NULL DEFAULT '0',
+  rejected_simulations int(11) NOT NULL DEFAULT '0',
+  failed_simulations int(11) NOT NULL DEFAULT '0',
+  created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  started_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  finished_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'job_objective'
+--
+
+DROP TABLE IF EXISTS job_objective;
+CREATE TABLE job_objective (
+  job_id int(11) NOT NULL,
+  objective_id int(11) NOT NULL,
+  id int(11) NOT NULL,
+  PRIMARY KEY (id),
+  KEY job_id (job_id),
+  KEY objective_id (objective_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE job_objective:
+--   job_id
+--       job -> id
+--   objective_id
+--       objective -> id
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'job_parameter'
+--
+
+DROP TABLE IF EXISTS job_parameter;
+CREATE TABLE job_parameter (
+  id int(11) NOT NULL,
+  job_id int(11) NOT NULL,
+  parameter_id int(11) NOT NULL,
+  PRIMARY KEY (id),
+  KEY job_id (job_id),
+  KEY parameter_id (parameter_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE job_parameter:
+--   job_id
+--       job -> id
+--   parameter_id
+--       parameter -> id
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'objective'
+--
+
+DROP TABLE IF EXISTS objective;
+CREATE TABLE objective (
+  id int(11) NOT NULL,
+  `name` text NOT NULL,
+  maximise tinyint(1) NOT NULL DEFAULT '0',
+  expression varchar(255) DEFAULT '',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'parameter'
+--
+
+DROP TABLE IF EXISTS parameter;
+CREATE TABLE parameter (
+  id int(11) NOT NULL,
+  `name` text NOT NULL,
+  distribution varchar(255) DEFAULT '',
+  base_parameter tinyint(1) NOT NULL DEFAULT '0',
+  distribution_type varchar(255) DEFAULT 'UNIFORM_REAL',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'parameter_value'
+--
+
+DROP TABLE IF EXISTS parameter_value;
+CREATE TABLE parameter_value (
+  id int(11) NOT NULL,
+  simulation_id int(11) NOT NULL,
+  parameter_id int(11) NOT NULL,
+  `value` double NOT NULL,
+  PRIMARY KEY (id),
+  KEY simulation_id (simulation_id),
+  KEY parameter_id (parameter_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE parameter_value:
+--   simulation_id
+--       simulation -> id
+--   parameter_id
+--       parameter -> id
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'score'
+--
+
+DROP TABLE IF EXISTS score;
+CREATE TABLE score (
+  id int(11) NOT NULL,
+  simulation_id int(11) NOT NULL,
+  objective_id int(11) NOT NULL,
+  score double NOT NULL,
+  PRIMARY KEY (id),
+  KEY simulation_id (simulation_id),
+  KEY objective_id (objective_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE score:
+--   simulation_id
+--       simulation -> id
+--   objective_id
+--       objective -> id
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'simulation'
+--
+
+DROP TABLE IF EXISTS simulation;
+CREATE TABLE simulation (
+  id int(11) NOT NULL,
+  job_id int(11) NOT NULL,
+  probability double DEFAULT NULL,
+  error_details text,
+  total_misfit double DEFAULT NULL,
+  issue_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  started_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  finished_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  uploaded_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  is_finished tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (id),
+  KEY job_id (job_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE simulation:
+--   job_id
+--       job -> id
+--
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table job_objective
+--
+ALTER TABLE job_objective
+  ADD CONSTRAINT job_objective_ibfk_1 FOREIGN KEY (job_id) REFERENCES job (id),
+  ADD CONSTRAINT job_objective_ibfk_2 FOREIGN KEY (objective_id) REFERENCES objective (id);
+
+--
+-- Constraints for table job_parameter
+--
+ALTER TABLE job_parameter
+  ADD CONSTRAINT job_parameter_ibfk_1 FOREIGN KEY (job_id) REFERENCES job (id),
+  ADD CONSTRAINT job_parameter_ibfk_2 FOREIGN KEY (parameter_id) REFERENCES parameter (id);
+
+--
+-- Constraints for table parameter_value
+--
+ALTER TABLE parameter_value
+  ADD CONSTRAINT parameter_value_ibfk_1 FOREIGN KEY (simulation_id) REFERENCES simulation (id),
+  ADD CONSTRAINT parameter_value_ibfk_2 FOREIGN KEY (parameter_id) REFERENCES parameter (id);
+
+--
+-- Constraints for table score
+--
+ALTER TABLE score
+  ADD CONSTRAINT score_ibfk_1 FOREIGN KEY (simulation_id) REFERENCES simulation (id),
+  ADD CONSTRAINT score_ibfk_2 FOREIGN KEY (objective_id) REFERENCES objective (id);
+
+--
+-- Constraints for table simulation
+--
+ALTER TABLE simulation
+  ADD CONSTRAINT simulation_ibfk_1 FOREIGN KEY (job_id) REFERENCES job (id);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
